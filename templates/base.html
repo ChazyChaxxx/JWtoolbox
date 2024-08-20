@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <!-- Header -->
+                <header id="header">
+                    <a href="/" class="logo"><strong>La boite à outils de Juridic Ways</strong></a>
+                    <ul class="icons">
+                        <li><a href="#" class="icon brands fa-twitter"></a></li>
+                        <li><a href="#" class="icon brands fa-facebook-f"></a></li>
+                        <!-- Autres icônes -->
+                    </ul>
+                </header>
+                <!-- Contenu principal -->
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+                <!-- Menu -->
+                <nav id="menu">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        <li><a href="/">Accueil</a></li>
+                        <li><a href="/profitsubsistant">Calculateur de Profit Subsistant</a></li>
+                        <li><a href="/co-parentalite">Calendrier de co-parentalité</a></li>
+						<li><a href="/contact">Nous contacter</a></li>
+                    </ul>
+                </nav>
+                <!-- Footer -->
+                <footer id="footer">
+                    <p>&copy; 2024 Juridic Ways.</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

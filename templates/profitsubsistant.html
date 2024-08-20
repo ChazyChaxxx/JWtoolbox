@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="banner">
+    <div class="content">
+        <header>
+            <h1>Calculateur de profit subsistant</h1>
+        </header>
+        <p>Entrez vos valeurs pour calculer votre profit subsistant.</p>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <form action="/calculate" method="post">
+            <input type="number" name="valeur_initiale" placeholder="Valeur initiale" required>
+            <input type="number" name="investissement" placeholder="Investissement" required>
+            <input type="number" name="valeur_actuelle" placeholder="Valeur actuelle" required>
+            <button type="submit">Calculer</button>
+        </form>
+        <form action="/reset" method="post">
+            <button type="submit">Réinitialiser</button>
+        </form>
+        {% if result is not none %}
+        <h2>Résultat: {{ result }} €</h2>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
