@@ -22,6 +22,12 @@ def profitsubsistant():
     # Retourne la page profitsubsistant.html
     return render_template('profitsubsistant.html')
 
+# Définition de la route pour la page contact
+@app.route('/contact')
+def contact():
+    # Retourne la page contact.html
+    return render_template('contact.html')
+
 # Définition de la route pour effectuer le calcul du profit subsistant
 @app.route('/calculate', methods=['POST'])
 def calculate():
