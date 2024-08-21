@@ -259,4 +259,21 @@
 
 			});
 
+	// Code ajouté pour le calendrier minimaliste
+	let currentYear = new Date().getFullYear();
+
+	document.getElementById('year-display').textContent = currentYear;
+
+	document.getElementById('prev-year').addEventListener('click', function() {
+		currentYear--;
+		document.getElementById('year-display').textContent = currentYear;
+		// Logique supplémentaire pour changer les couleurs ou mettre à jour le calendrier ici
+	});
+
+	document.getElementById('next-year').addEventListener('click', function() {
+		currentYear++;
+		document.getElementById('year-display').textContent = currentYear;
+		// Logique supplémentaire pour changer les couleurs ou mettre à jour le calendrier ici
+	});
+
 })(jQuery);

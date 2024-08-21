@@ -6,6 +6,37 @@
         <header>
             <h1>Outil calendrier de co-parentalité</h1>
         </header>
+
+    
+        <div id="form-section">
+            <p>Formulaire à insérer ici</p>
+            <button id="submit-button">Envoyer</button>
+        </div>
+
+        <div class="calendar">
+            <div class="year-navigation">
+                <button id="prev-year">← Previous</button>
+                <span id="year-display">2024</span>
+                <button id="next-year">Next →</button>
+            </div>
+        </div>
+        <div>
+            <div class="months">
+                <!-- 12 Mois du calendrier -->
+                {% for month in ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre'] %}
+                <div class="month">
+                    <div class="month-name">{{ month }}</div>
+                    <div class="days">
+                        {% for day in range(1, 32) %}
+                        <div class="day">{{ day }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
+
+    
 </section>
 {% endblock %}
