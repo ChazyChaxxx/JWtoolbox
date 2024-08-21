@@ -22,12 +22,6 @@ def profitsubsistant():
     # Retourne la page profitsubsistant.html
     return render_template('profitsubsistant.html')
 
-# Définition de la route pour la page contact
-@app.route('/contact')
-def contact():
-    # Retourne la page contact.html
-    return render_template('contact.html')
-
 # Définition de la route pour effectuer le calcul du profit subsistant
 @app.route('/calculate', methods=['POST'])
 def calculate():
@@ -38,12 +32,20 @@ def calculate():
         investissement = float(request.form['investissement'])
         valeur_actuelle = float(request.form['valeur_actuelle'])
 
-        # Calcul du profit subsistant
-        # Cette formule soustrait la somme de la valeur initiale et de l'investissement de la valeur actuelle
-        profit_subsistant = valeur_actuelle - (valeur_initiale + investissement)
+        # Calcul du profit subsistant basé sur le pourcentage de l'investissement par rapport à la valeur initiale
+        proportion_investissement = investissement / valeur_initiale
+        profit_subsistant = proportion_investissement * valeur_actuelle
+
+        # Créer un récapitulatif des valeurs et de la formule utilisée
+        recap = f"Valeur Initiale : {valeur_initiale} €, Investissement : {investissement} €, Valeur Actuelle : {valeur_actuelle} €. "
+        formule = "Formule appliquée : (Investissement / Valeur Initiale) * Valeur Actuelle"
         
-        # Renvoie la page profitsubsistant.html avec le résultat du calcul
-        return render_template('profitsubsistant.html', result=profit_subsistant, title="Résultat du Calcul")
+        # Renvoie la page profitsubsistant.html avec le résultat du calcul et le récapitulatif
+        return render_template('profitsubsistant.html', 
+                               result=profit_subsistant, 
+                               recap=recap, 
+                               formule=formule, 
+                               title="Résultat du Calcul")
     except ValueError:
         # Gestion des erreurs en cas de mauvaise saisie
         # Si une valeur non numérique est saisie, un message d'erreur est affiché

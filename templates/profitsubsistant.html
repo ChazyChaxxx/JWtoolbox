@@ -20,9 +20,21 @@
         <form action="/reset" method="post">
             <button type="submit">Réinitialiser</button>
         </form>
+
+        <!-- Ajout du récapitulatif des montants et de la formule -->
+        {% if recap %}
+        <div class="recap">
+            <h2>Récapitulatif :</h2>
+            <p>{{ recap }}</p>
+            <p>{{ formule }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Affichage du résultat -->
         {% if result is not none %}
         <h2>Résultat: {{ result }} €</h2>
         {% endif %}
+        
     </div>
 </section>
 {% endblock %}
