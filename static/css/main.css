@@ -2345,3 +2345,59 @@ button,
       margin: 10px 0 20px 0; /* Spacing below the submit button */
   }
   
+  .month:nth-child(2) .day:nth-child(n+30) { 
+    display: none; /* cache les derniers jours de février */
+}
+
+  /* Cible les mois d'avril, juin, septembre, et novembre */
+  .month:nth-child(4) .day:nth-child(31),
+  .month:nth-child(6) .day:nth-child(31),
+  .month:nth-child(9) .day:nth-child(31),
+  .month:nth-child(11) .day:nth-child(31) {
+    display: none;
+}
+
+/* Cible le mois de février (deuxième mois) */
+  .month:nth-child(2) .days .day:nth-child(1) {
+  grid-column-start: 4; /* Déplace le 1er jour à la 4ème colonne */
+}
+
+/* Cible le mois de mars (troisième mois) */
+.month:nth-child(3) .days .day:nth-child(1) {
+  grid-column-start: 5; /* Déplace le 1er jour à la 5ème colonne */
+}
+
+/* Cible le mois de mai (5e mois) */
+.month:nth-child(5) .days .day:nth-child(1) {
+  grid-column-start: 3; /* Déplace le 1er jour à la 3ème colonne */
+}
+
+/* Cible le mois de juin (6e mois) */
+.month:nth-child(6) .days .day:nth-child(1) {
+  grid-column-start: 6; /* Déplace le 1er jour à la 6ème colonne */
+}
+
+/* Cible le mois d'aout (8e mois) */
+.month:nth-child(8) .days .day:nth-child(1) {
+  grid-column-start: 4; /* Déplace le 1er jour à la 4ème colonne */
+}
+
+/* Cible le mois de septembre (9e mois) */
+.month:nth-child(9) .days .day:nth-child(1) {
+  grid-column-start: 7; /* Déplace le 1er jour à la 7ème colonne */
+}
+
+/* Cible le mois de octobre */
+.month:nth-child(10) .days .day:nth-child(1) {
+  grid-column-start: 2; /* Déplace le 1er jour à la 2ème colonne */
+}
+
+/* Cible le mois de novembre */
+.month:nth-child(11) .days .day:nth-child(1) {
+  grid-column-start: 5; /* Déplace le 1er jour à la 5ème colonne */
+}
+
+/* Cible le mois de decembre */
+.month:nth-child(12) .days .day:nth-child(1) {
+  grid-column-start: 7; /* Déplace le 1er jour à la 7ème colonne */
+}
