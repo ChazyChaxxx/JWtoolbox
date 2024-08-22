@@ -2300,6 +2300,26 @@ button,
   gap: 20px;
 }
 
+#pdf-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#export-pdf {
+  padding: 10px 20px;
+  background-color: #5e5a98;
+  color: #ffffff !important; 
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .legend-item {
   display: flex;
   align-items: center;
@@ -2433,3 +2453,6 @@ button,
 .month:nth-child(12) .days .day:nth-child(1) {
   grid-column-start: 7; /* Déplace le 1er jour à la 7ème colonne */
 }
+
+
+

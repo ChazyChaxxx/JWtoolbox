@@ -22,8 +22,6 @@
             </form>
         </div>
         
-        
-
         <div class="calendar">
             <div class="year-navigation">
                 <button id="prev-year">← Previous</button>
@@ -42,7 +40,7 @@
             </div>
         </div>        
 
-        <div>
+        <div class="months-container">
             <div class="months">
                 <!-- 12 Mois du calendrier -->
                 {% for month in ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre'] %}
@@ -57,6 +55,10 @@
                 {% endfor %}
             </div>
         </div>
+        <div id="pdf-button-container">
+            <button id="export-pdf" style="display: none;">Exporter en PDF</button>
+        </div>
+        
     </div>
 </section>
 
@@ -90,6 +92,9 @@ document.getElementById("submit-button").addEventListener("click", function(even
 
     // Désactiver le bouton Envoyer après le premier clic
     document.getElementById("submit-button").disabled = true;
+
+    // Afficher le bouton Exporter en PDF
+    document.getElementById("export-pdf").style.display = 'inline';
 });
 
 document.getElementById("reset-button").addEventListener("click", function() {
@@ -100,6 +105,9 @@ document.getElementById("reset-button").addEventListener("click", function() {
 
     // Réactiver le bouton Envoyer
     document.getElementById("submit-button").disabled = false;
+
+    // Cacher le bouton Exporter en PDF
+    document.getElementById("export-pdf").style.display = 'none';
 });
 </script>
 {% endblock %}
