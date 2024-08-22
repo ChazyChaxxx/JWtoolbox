@@ -2273,6 +2273,7 @@ button,
     padding-top: 0; }
 
 
+
     .calendar {
       font-family: Arial, sans-serif;
       display: grid;
@@ -2283,6 +2284,16 @@ button,
     
   }
   
+  #year-display {
+    font-size: 2em; /* Agrandit le texte */
+    font-weight: bold; /* Met le texte en gras */
+    margin-left: 20px; 
+    margin-right: 20px; 
+    display: inline-block; /* Pour assurer que les marges soient appliquées correctement */
+    text-align: center; /* Centre le texte dans son conteneur */
+}
+
+
   .year-navigation {
       display: flex;
       justify-content: center;
