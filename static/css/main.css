@@ -2293,6 +2293,26 @@ button,
     text-align: center; /* Centre le texte dans son conteneur */
 }
 
+#legend {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+}
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 10px;
+  border: 1px solid #000;
+}
+
 
   .year-navigation {
       display: flex;
@@ -2337,6 +2357,7 @@ button,
       align-items: center;
       border: 1px solid #ccc;
       font-size: 0.75em;
+      transition: background-color 0.3s ease;
   }
   
   .day:hover {

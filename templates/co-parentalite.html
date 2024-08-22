@@ -7,7 +7,6 @@
             <h1>Outil calendrier de co-parentalité</h1>
         </header>
 
-    
         <div id="form-section">
             <form>
                 <label for="vacation-zone">Choisissez votre zone de vacances scolaire</label>
@@ -19,8 +18,10 @@
                     <option value="domtom">DomTom</option>
                 </select>
                 <button id="submit-button" type="submit">Envoyer</button>
+                <button id="reset-button" type="button">Réinitialiser</button>
             </form>
         </div>
+        
         
 
         <div class="calendar">
@@ -30,6 +31,17 @@
                 <button id="next-year">Next →</button>
             </div>
         </div>
+        <div id="legend">
+            <div class="legend-item">
+                <span class="color-box" style="background-color: #ffcccc;"></span>
+                <span>Parent 1</span>
+            </div>
+            <div class="legend-item">
+                <span class="color-box" style="background-color: #ccffcc;"></span>
+                <span>Parent 2</span>
+            </div>
+        </div>        
+
         <div>
             <div class="months">
                 <!-- 12 Mois du calendrier -->
@@ -46,7 +58,48 @@
             </div>
         </div>
     </div>
-
-    
 </section>
+
+<script>
+document.getElementById("submit-button").addEventListener("click", function(event) {
+    event.preventDefault(); // Empêche l'envoi du formulaire
+
+    function getRandomDay() {
+        return Math.floor(Math.random() * 365);
+    }
+
+    const days = document.querySelectorAll(".day");
+    const selectedDays1 = [];
+    const selectedDays2 = [];
+
+    while (selectedDays1.length < 40) {
+        const day = getRandomDay();
+        if (!selectedDays1.includes(day)) {
+            selectedDays1.push(day);
+            days[day].style.backgroundColor = "#ffcccc"; // Couleur 1
+        }
+    }
+
+    while (selectedDays2.length < 40) {
+        const day = getRandomDay();
+        if (!selectedDays1.includes(day) && !selectedDays2.includes(day)) {
+            selectedDays2.push(day);
+            days[day].style.backgroundColor = "#ccffcc"; // Couleur 2
+        }
+    }
+
+    // Désactiver le bouton Envoyer après le premier clic
+    document.getElementById("submit-button").disabled = true;
+});
+
+document.getElementById("reset-button").addEventListener("click", function() {
+    const days = document.querySelectorAll(".day");
+    days.forEach(day => {
+        day.style.backgroundColor = ""; // Réinitialise la couleur
+    });
+
+    // Réactiver le bouton Envoyer
+    document.getElementById("submit-button").disabled = false;
+});
+</script>
 {% endblock %}

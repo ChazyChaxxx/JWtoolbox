@@ -38,7 +38,7 @@
                         <li><a href="/">Accueil</a></li>
                         <li><a href="/profitsubsistant">Calculateur de Profit Subsistant</a></li>
                         <li><a href="/co-parentalite">Calendrier de co-parentalité</a></li>
-						<li><a href="/contact">Nous contacter</a></li>
+                        <li><a href="/contact">Nous contacter</a></li>
                     </ul>
                 </nav>
                 <!-- Footer -->
@@ -48,6 +48,38 @@
             </div>
         </div>
     </div>
+    
+    <!-- Script JavaScript pour coloriser les jours -->
+    <script>
+    document.getElementById("submit-button").addEventListener("click", function(event) {
+        event.preventDefault(); // Empêche l'envoi du formulaire
+
+        function getRandomDay() {
+            return Math.floor(Math.random() * 365);
+        }
+
+        const days = document.querySelectorAll(".day");
+        const selectedDays1 = [];
+        const selectedDays2 = [];
+
+        while (selectedDays1.length < 40) {
+            const day = getRandomDay();
+            if (!selectedDays1.includes(day)) {
+                selectedDays1.push(day);
+                days[day].style.backgroundColor = "#ffcccc"; // Couleur 1
+            }
+        }
+
+        while (selectedDays2.length < 40) {
+            const day = getRandomDay();
+            if (!selectedDays1.includes(day) && !selectedDays2.includes(day)) {
+                selectedDays2.push(day);
+                days[day].style.backgroundColor = "#ccffcc"; // Couleur 2
+            }
+        }
+    });
+    </script>
+
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
