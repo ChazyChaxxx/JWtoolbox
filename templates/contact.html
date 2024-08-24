@@ -7,7 +7,35 @@
             <h1>Votre avis est essentiel !</h1>
         </header>
         <p>Envoyez-nous vos idées et vos retours.</p>
-        <p>Formulaire de contact à insérer ici.</p>
+        
+        <form id="contact-form">
+            <label for="identity">Qui êtes-vous ?</label>
+            <input type="text" id="identity" name="identity" placeholder="Vous pouvez rester anonyme">
+            
+            <label for="message">Que pouvons-nous faire pour vous ?</label>
+            <textarea id="message" name="message" placeholder="Votre message"></textarea>
+            
+            <button type="submit" id="send-button">Envoyer</button>
+        </form>
+        
+        <p id="response-message" style="display:none;"></p>
     </div>
 </section>
+
+<script>
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Empêche l'envoi du formulaire
+
+    const message = document.getElementById("message").value.trim();
+    const responseMessage = document.getElementById("response-message");
+
+    if (message === "") {
+        responseMessage.innerText = "Votre message ne contient pas de texte.";
+    } else {
+        responseMessage.innerText = "Nous avons bien reçu votre message et nous vous recontacterons dès que possible.";
+    }
+
+    responseMessage.style.display = "block"; // Affiche le message de réponse
+});
+</script>
 {% endblock %}
